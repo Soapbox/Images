@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/i/{image}', function ($image) {
+    $file = Cache::get($image, function () use ($image) {
+        $files = Storage::files('i');
+
+        $hash = hash('sha512', $image);
+        $image = ((int) $hash) % count($files);
+        $image = $files[$image];
+
+        return $image;
+    });
+
+    return response()->file(storage_path(sprintf('app/%s', $file)));
 });
