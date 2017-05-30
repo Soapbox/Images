@@ -23,4 +23,4 @@ Route::get('/i/{image}', function ($image) {
     });
 
     return response()->file(storage_path(sprintf('app/%s', $file)));
-});
+})->where('image', '(.*)');
