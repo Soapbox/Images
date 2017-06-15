@@ -15,8 +15,8 @@ Route::get('/i/{image}', function ($image) {
     $file = Cache::get($image, function () use ($image) {
         $files = Storage::files('i');
 
-        $hash = hash('sha512', $image);
-        $image = fmod(hexdec($hash), count($files));
+        $hash = crc32($image);
+        $image = hexdec($hash) % count($files);
         $image = $files[$image];
 
         return $image;
