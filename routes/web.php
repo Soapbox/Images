@@ -16,7 +16,7 @@ Route::get('/i/{image}', function ($image) {
         $files = Storage::files('i');
 
         $hash = hash('sha512', $image);
-        $image = ((int) $hash) % count($files);
+        $image = fmod(hexdec($hash), count($files));
         $image = $files[$image];
 
         return $image;
