@@ -18,9 +18,22 @@ Route::get('/i/{image}', function ($image) {
         $hash = crc32($image);
         $image = $hash % count($files);
         $image = $files[$image];
-
         return $image;
     });
 
-    return response()->file(storage_path(sprintf('app/%s', $file)));
+    $img = Image::make(storage_path(sprintf('app/%s', $file)));
+    
+    if (strlen($image) > 0) {
+        $imageStr = mb_substr(ucfirst($image),0,1);
+        
+        $img->text($imageStr, 96, 96, function($font) {
+            $font->file(storage_path('open-sans.bold.ttf'));
+            $font->size(120);
+            $font->color('#fff');
+            $font->align('center');
+            $font->valign('middle');
+        });  
+    }
+
+    return $img->response('png');
 })->where('image', '(.*)');
