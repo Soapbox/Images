@@ -24,11 +24,11 @@ Route::get('/i/{image}', function ($image) {
     $img = Image::make(storage_path(sprintf('app/%s', $file)));
     
     if (strlen($image) > 0) {
-        $imageStr = mb_substr(ucfirst($image),0,1);
+        $imageStr = mb_substr($image,0,1);
         
         $img->text($imageStr, 96, 96, function($font) {
-            $font->file(storage_path('open-sans.bold.ttf'));
-            $font->size(120);
+            $font->file(storage_path('Arial Unicode MS.ttf'));
+            $font->size(160);
             $font->color('#fff');
             $font->align('center');
             $font->valign('middle');
