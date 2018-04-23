@@ -49,7 +49,7 @@ Route::get('/i/{image}', function ($image) {
             $shortCode = $emojione->toShort($imageStr);
 
             if(mb_strlen($shortCode) > 1) {
-                $emoji = $emojione->ToImage($imageStr);
+                $emoji = $emojione->toImage($imageStr);
                 $xpath = new DOMXPath(@DOMDocument::loadHTML($emoji));
                 $src = $xpath->evaluate("string(//img/@src)");
                 $emojiImage = Image::make($src);
