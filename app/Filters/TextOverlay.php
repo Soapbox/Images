@@ -35,9 +35,9 @@ class TextOverlay implements FilterInterface
      */
     private function overlayLetter(string $letter, Image $image): Image
     {
-        $image->text($letter, 96, 96, function ($font) use ($letter) {
-            $isAlpha = ctype_alnum($letter);
+        $letter = ($isAlpha = ctype_alnum($letter)) ? Str::ucfirst($letter) : $letter;
 
+        $image->text($letter, 96, 96, function ($font) use ($isAlpha) {
             $font->file(storage_path($isAlpha ? TextOverlay::OPEN_SANS : TextOverlay::ARIAL));
             $font->size($isAlpha ? 136 : 110);
             $font->color('#fff');
@@ -95,7 +95,7 @@ class TextOverlay implements FilterInterface
      */
     public function applyFilter(Image $image)
     {
-        $letter = Str::first(Str::ucfirst($this->text));
+        $letter = Str::first($this->text);
 
         if (Str::startsWithEmoji($letter)) {
             return $this->overlayEmoji($letter, $image);
