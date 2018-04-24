@@ -1,0 +1,3 @@
+vendor/bin/php-cs-fixer fix app/ --rules=no_unused_imports,return_type_declaration
+vendor/bin/php-cs-fixer fix tests/ --rules=no_unused_imports,return_type_declaration
+vendor/bin/php-cs-fixer fix database/ --rules=no_unused_imports,return_type_declaration
