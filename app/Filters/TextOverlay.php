@@ -76,7 +76,7 @@ class TextOverlay implements FilterInterface
      *
      * @return \Intervention\Image\Image
      */
-    private function overlayEmoji(string $emoji, Image $image): Image
+    protected function overlayEmoji(string $emoji, Image $image): Image
     {
         $emojiImage = $this->getEmoji($emoji);
         $emojiImage->resize(100, 100);
