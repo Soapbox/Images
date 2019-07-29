@@ -42,7 +42,7 @@ class Gradient
 
         $page = $browser->newPage();
         $page->setViewport(['width' => 192, 'height' => 192]);
-        $page->goto("http://images.services.soapboxdev.com/gradient/{$this->start}/{$this->end}?ZRayDisable=1");
+        $page->goto(url("/i/gradient/{$this->start}/{$this->end}?ZRayDisable=1"));
         $page->screenshot(['path' => $file]);
 
         $browser->close();
