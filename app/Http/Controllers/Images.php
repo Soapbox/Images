@@ -78,6 +78,7 @@ class Images extends Controller
             try {
                 (new Gradient($gradientStart, $gradientEnd))->render($file);
             } catch (Exception $e) {
+                logger()->error($e);
             }
         }
 
