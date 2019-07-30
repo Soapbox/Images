@@ -67,11 +67,6 @@ class Images extends Controller
         $gradientStart = strtoupper($gradientStart);
         $gradientEnd = strtoupper($gradientEnd);
 
-        $emoji = Str::start(Str::finish($emoji, ':'), ':');
-        if (!array_key_exists($emoji, (new Ruleset())->getShortcodeReplace())) {
-            abort(404);
-        }
-
         $file = storage_path("gradients/$gradientStart-$gradientEnd.png");
         if (!file_exists($file)) {
             $this->renderGradient($gradientStart, $gradientEnd, $file);
@@ -89,7 +84,12 @@ class Images extends Controller
             $image = Image::canvas(192, 192, (new Gradient($gradientStart, $gradientEnd))->findMidpoint());
         }
 
-        $image->filter(new EmojiOverlay($emoji));
+        $shortCode = Str::start(Str::finish($emoji, ':'), ':');
+        if (array_key_exists($shortCode, (new Ruleset())->getShortcodeReplace())) {
+            $image->filter(new EmojiOverlay($shortCode));
+        } else {
+            $image->filter(new TextOverlay($emoji));
+        }
 
         return $image->response('png');
     }
