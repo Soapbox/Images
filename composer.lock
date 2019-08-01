@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4bed45c5491dfec4dabec60b9e147fa",
+    "content-hash": "06b6b1a0bfcbf89930aaf608e75a0322",
     "packages": [
         {
             "name": "clue/socket-raw",
@@ -354,16 +354,16 @@
         },
         {
             "name": "emojione/emojione",
-            "version": "v2.2.7",
+            "version": "4.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Ranks/emojione.git",
-                "reference": "0aad7f9f7969f0187e4f50d12fdc113541a34ac3"
+                "url": "https://github.com/emojione/emojione.git",
+                "reference": "79e685356877cbb6128074a71b7f88f435b58412"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Ranks/emojione/zipball/0aad7f9f7969f0187e4f50d12fdc113541a34ac3",
-                "reference": "0aad7f9f7969f0187e4f50d12fdc113541a34ac3",
+                "url": "https://api.github.com/repos/emojione/emojione/zipball/79e685356877cbb6128074a71b7f88f435b58412",
+                "reference": "79e685356877cbb6128074a71b7f88f435b58412",
                 "shasum": ""
             },
             "require": {
@@ -382,10 +382,9 @@
             "license": [
                 "(CC-BY-4.0 and MIT)"
             ],
-            "description": "Emoji One is a complete set of emojis designed for the web. It includes libraries to easily convert unicode characters to shortnames (:smile:) and shortnames to our custom emoji images. PNG and SVG formats provided for the emoji images.",
+            "description": "EmojiOne is a complete set of emojis designed for the web. It includes libraries to easily convert unicode characters to shortnames (:smile:) and shortnames to our custom emoji images. PNG format provided for the emoji images.",
             "homepage": "http://www.emojione.com",
             "keywords": [
-                "Emoji One",
                 "emoji",
                 "emojione",
                 "emojis",
@@ -394,7 +393,7 @@
                 "smilies",
                 "unicode"
             ],
-            "time": "2016-12-03T01:19:25+00:00"
+            "time": "2019-02-15T01:32:20+00:00"
         },
         {
             "name": "erusev/parsedown",
