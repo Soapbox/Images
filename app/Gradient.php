@@ -55,8 +55,8 @@ class Gradient
      */
     public function findMidpoint(): string
     {
-        [$startRed, $startGreen, $startBlue] = sscanf($this->start, "%02x%02x%02x");
-        [$endRed, $endGreen, $endBlue] = sscanf($this->end, "%02x%02x%02x");
+        [$startRed, $startGreen, $startBlue] = sscanf($this->start, '%02x%02x%02x');
+        [$endRed, $endGreen, $endBlue] = sscanf($this->end, '%02x%02x%02x');
 
         return sprintf(
             '%02x%02x%02x',

@@ -2,13 +2,13 @@
 
 namespace App\Filters;
 
-use DOMXPath;
 use DOMDocument;
+use DOMXPath;
 use Emojione\Client;
 use Illuminate\Support\Str;
-use Intervention\Image\Image;
-use Intervention\Image\Filters\FilterInterface;
 use Intervention\Image\Facades\Image as ImageFacade;
+use Intervention\Image\Filters\FilterInterface;
+use Intervention\Image\Image;
 
 class TextOverlay implements FilterInterface
 {
@@ -38,7 +38,7 @@ class TextOverlay implements FilterInterface
         $letter = ($isAlpha = ctype_alnum($letter)) ? Str::ucfirst($letter) : $letter;
 
         $image->text($letter, 96, 96, function ($font) use ($isAlpha) {
-            $font->file(storage_path($isAlpha ? TextOverlay::OPEN_SANS : TextOverlay::ARIAL));
+            $font->file(storage_path($isAlpha ? self::OPEN_SANS : self::ARIAL));
             $font->size($isAlpha ? 136 : 110);
             $font->color('#fff');
             $font->align('center');
@@ -63,7 +63,7 @@ class TextOverlay implements FilterInterface
         $html = $client->toImage($emoji);
 
         $xpath = new DOMXPath(@DOMDocument::loadHTML($html));
-        $src = $xpath->evaluate("string(//img/@src)");
+        $src = $xpath->evaluate('string(//img/@src)');
 
         return ImageFacade::make($src);
     }

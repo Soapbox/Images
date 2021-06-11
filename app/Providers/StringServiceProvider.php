@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use Emojione\Client;
-use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 
 class StringServiceProvider extends ServiceProvider
 {

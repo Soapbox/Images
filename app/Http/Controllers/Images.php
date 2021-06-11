@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
+use App\Filters\EmojiOverlay;
+use App\Filters\TextOverlay;
 use App\Gradient;
 use Emojione\Ruleset;
-use Illuminate\Support\Str;
-use App\Filters\TextOverlay;
-use App\Filters\EmojiOverlay;
+use Exception;
 use Illuminate\Support\Facades\Cache;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class Images extends Controller
 {
@@ -29,6 +29,7 @@ class Images extends Controller
             $hash = crc32($name);
             $name = $hash % count($files);
             $name = $files[$name];
+
             return $name;
         });
 
@@ -50,6 +51,7 @@ class Images extends Controller
     {
         $start = strtoupper($start);
         $end = strtoupper($end);
+
         return view('channel-avatar', ['start' => $start, 'end' => $end]);
     }
 
@@ -68,7 +70,7 @@ class Images extends Controller
         $gradientEnd = strtoupper($gradientEnd);
 
         $file = storage_path("gradients/$gradientStart-$gradientEnd.png");
-        if (!file_exists($file)) {
+        if (! file_exists($file)) {
             $this->renderGradient($gradientStart, $gradientEnd, $file);
             try {
                 (new Gradient($gradientStart, $gradientEnd))->render($file);
