@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\EmojiOverlay;
-use App\Filters\TextOverlay;
+use Exception;
 use App\Gradient;
 use JoyPixels\Ruleset;
-use Exception;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Filters\TextOverlay;
+use App\Filters\EmojiOverlay;
+use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class Images extends Controller
 {

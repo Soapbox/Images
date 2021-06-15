@@ -2,27 +2,21 @@
 
 namespace App\Filters;
 
-use DOMDocument;
 use DOMXPath;
+use DOMDocument;
 use JoyPixels\Client;
 use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image as ImageFacade;
-use Intervention\Image\Filters\FilterInterface;
 use Intervention\Image\Image;
+use Intervention\Image\Filters\FilterInterface;
+use Intervention\Image\Facades\Image as ImageFacade;
 
 class TextOverlay implements FilterInterface
 {
-    const OPEN_SANS = 'open-sans.bold.ttf';
-    const ARIAL = 'Arial Unicode MS.ttf';
+    public const OPEN_SANS = 'open-sans.bold.ttf';
+    public const ARIAL = 'Arial Unicode MS.ttf';
 
-    /**
-     * Creates new instance of filter with the text to overlay
-     *
-     * @param string $text
-     */
-    public function __construct(string $text = '')
+    public function __construct(private string $text = '')
     {
-        $this->text = $text;
     }
 
     /**
@@ -60,13 +54,11 @@ class TextOverlay implements FilterInterface
         $client = resolve(Client::class);
         $client->emojiSize = 128;
 
-        $html = $client->toImage($emoji);
         $doc = new DOMDocument();
-        $doc->loadHTML($html);
+        $doc->loadHTML($client->toImage($emoji));
         $xpath = new DOMXPath($doc);
-        $src = $xpath->evaluate('string(//img/@src)');
 
-        return ImageFacade::make($src);
+        return ImageFacade::make($xpath->evaluate('string(//img/@src)'));
     }
 
     /**
