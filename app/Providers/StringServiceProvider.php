@@ -3,8 +3,8 @@
 namespace App\Providers;
 
 use JoyPixels\Client;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Illuminate\Support\ServiceProvider;
 
 class StringServiceProvider extends ServiceProvider
 {
