@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Filters\EmojiOverlay;
 use App\Filters\TextOverlay;
 use App\Gradient;
-use Emojione\Ruleset;
+use JoyPixels\Ruleset;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
