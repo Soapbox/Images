@@ -4,7 +4,7 @@ namespace App\Filters;
 
 use DOMDocument;
 use DOMXPath;
-use Emojione\Client;
+use JoyPixels\Client;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image as ImageFacade;
 use Intervention\Image\Filters\FilterInterface;
@@ -61,8 +61,9 @@ class TextOverlay implements FilterInterface
         $client->emojiSize = 128;
 
         $html = $client->toImage($emoji);
-
-        $xpath = new DOMXPath(@DOMDocument::loadHTML($html));
+        $doc = new DOMDocument();
+        $doc->loadHTML($html);
+        $xpath = new DOMXPath($doc);
         $src = $xpath->evaluate('string(//img/@src)');
 
         return ImageFacade::make($src);
