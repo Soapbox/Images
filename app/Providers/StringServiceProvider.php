@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use Emojione\Client;
+use JoyPixels\Client;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 

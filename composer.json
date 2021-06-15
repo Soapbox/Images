@@ -11,7 +11,7 @@
         "php": "^8.0",
         "laravel/framework": "^8.46",
         "intervention/image": "^2.5",
-        "emojione/emojione": "^4.5",
+        "joypixels/emoji-toolkit": "^6.5",
         "nesk/puphpeteer": "^1.6",
         "sentry/sentry-laravel": "^2.6",
         "fideloper/proxy": "^4.4",
