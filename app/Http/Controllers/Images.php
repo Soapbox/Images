@@ -70,7 +70,7 @@ class Images extends Controller
         $gradientEnd = strtoupper($gradientEnd);
 
         $file = storage_path("gradients/$gradientStart-$gradientEnd.png");
-        if (! file_exists($file)) {
+        if (!file_exists($file)) {
             $this->renderGradient($gradientStart, $gradientEnd, $file);
             try {
                 (new Gradient($gradientStart, $gradientEnd))->render($file);
