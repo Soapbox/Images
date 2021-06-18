@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Images;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +14,8 @@
 |
 */
 
-Route::get('/i/gradient/{start}/{end}', 'Images@renderGradient')
+Route::get('/i/gradient/{start}/{end}', [Images::class, 'renderGradient'])
     ->where(['start' => '[A-Fa-f0-9]{6}', 'end' => '[A-Fa-f0-9]{6}']);
-Route::get('/i/channel/{gradientStart}/{gradientEnd}/{emoji}', 'Images@renderChannelIcon')
+Route::get('/i/channel/{gradientStart}/{gradientEnd}/{emoji}', [Images::class, 'renderChannelIcon'])
     ->where(['gradientStart' => '[A-Fa-f0-9]{6}', 'gradientEnd' => '[A-Fa-f0-9]{6}']);
-Route::get('/i/{image}', 'Images@generate')->where('image', '(.*)');
+Route::get('/i/{image}', [Images::class, 'generate'])->where('image', '(.*)');

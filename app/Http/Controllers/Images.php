@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Filters\EmojiOverlay;
-use App\Filters\TextOverlay;
-use App\Gradient;
-use Emojione\Ruleset;
 use Exception;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
+use App\Gradient;
+use JoyPixels\Ruleset;
 use Illuminate\Support\Str;
+use App\Filters\TextOverlay;
+use App\Filters\EmojiOverlay;
+use Illuminate\Support\Facades\Cache;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class Images extends Controller
 {
@@ -70,7 +70,7 @@ class Images extends Controller
         $gradientEnd = strtoupper($gradientEnd);
 
         $file = storage_path("gradients/$gradientStart-$gradientEnd.png");
-        if (! file_exists($file)) {
+        if (!file_exists($file)) {
             $this->renderGradient($gradientStart, $gradientEnd, $file);
             try {
                 (new Gradient($gradientStart, $gradientEnd))->render($file);

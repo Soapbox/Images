@@ -6,15 +6,7 @@ use Nesk\Puphpeteer\Puppeteer;
 
 class Gradient
 {
-    /**
-     * @var string
-     */
-    private $start;
 
-    /**
-     * @var string
-     */
-    private $end;
 
     /**
      * Create a new Gradient with the given colours
@@ -22,10 +14,8 @@ class Gradient
      * @param string $start
      * @param string $end
      */
-    public function __construct(string $start, string $end)
+    public function __construct(private string $start, private string $end)
     {
-        $this->start = $start;
-        $this->end = $end;
     }
 
     /**
@@ -37,8 +27,7 @@ class Gradient
      */
     public function render(string $file): void
     {
-        $puppeteer = new Puppeteer();
-        $browser = $puppeteer->launch();
+        $browser = (new Puppeteer())->launch();
 
         $page = $browser->newPage();
         $page->setViewport(['width' => 192, 'height' => 192]);

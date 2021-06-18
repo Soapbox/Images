@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use Emojione\Client;
-use Illuminate\Support\ServiceProvider;
+use JoyPixels\Client;
 use Illuminate\Support\Str;
+use Illuminate\Support\ServiceProvider;
 
 class StringServiceProvider extends ServiceProvider
 {
@@ -15,12 +15,10 @@ class StringServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Str::macro('startsWithEmoji', function (string $string) {
-            return Str::length(resolve(Client::class)->toShort(Str::first($string))) > 1;
-        });
+        Str::macro('startsWithEmoji', fn (string $string) =>
+             Str::length(resolve(Client::class)->toShort(Str::first($string))) > 1
+        );
 
-        Str::macro('first', function (string $string) {
-            return Str::substr($string, 0, 1);
-        });
+        Str::macro('first', fn (string $string) => Str::substr($string, 0, 1));
     }
 }

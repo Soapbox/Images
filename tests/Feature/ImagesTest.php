@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Http\Response;
 use Tests\TestCase;
+use Illuminate\Http\Response;
 
 class ImagesTest extends TestCase
 {

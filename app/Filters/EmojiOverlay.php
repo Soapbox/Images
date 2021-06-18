@@ -6,14 +6,8 @@ use Intervention\Image\Image;
 
 class EmojiOverlay extends TextOverlay
 {
-    /**
-     * Creates new instance of filter with the emoji to overlay
-     *
-     * @param string $emoji
-     */
-    public function __construct(string $emoji)
+    public function __construct(private string $emoji)
     {
-        $this->emoji = $emoji;
     }
 
     /**
