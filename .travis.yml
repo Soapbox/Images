@@ -4,7 +4,7 @@ php:
   - 8.0
 
 env:
-  - DB=mysql
+  - DB=mysql:8.0
 
 cache:
   directories:
