@@ -10,10 +10,10 @@
     "require": {
         "php": "^8.0",
         "laravel/framework": "^8.54",
-        "intervention/image": "^2.5",
+        "intervention/image": "^2.6",
         "joypixels/emoji-toolkit": "^6.5",
         "nesk/puphpeteer": "^1.6",
-        "sentry/sentry-laravel": "^2.6",
+        "sentry/sentry-laravel": "^2.8",
         "fideloper/proxy": "^4.4",
         "laravel/tinker": "^2.5",
         "fruitcake/laravel-cors": "^2.0",
