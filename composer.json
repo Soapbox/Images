@@ -9,7 +9,7 @@
     "type": "project",
     "require": {
         "php": "^8.0",
-        "laravel/framework": "^8.46",
+        "laravel/framework": "^8.55",
         "intervention/image": "^2.5",
         "joypixels/emoji-toolkit": "^6.5",
         "nesk/puphpeteer": "^1.6",
