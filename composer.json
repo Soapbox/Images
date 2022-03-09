@@ -10,10 +10,10 @@
     "require": {
         "php": "^8.0",
         "laravel/framework": "^8.83",
-        "intervention/image": "^2.5",
-        "joypixels/emoji-toolkit": "^6.5",
+        "intervention/image": "^2.7",
+        "joypixels/emoji-toolkit": "^6.6",
         "nesk/puphpeteer": "^1.6",
-        "sentry/sentry-laravel": "^2.6",
+        "sentry/sentry-laravel": "^2.11",
         "fideloper/proxy": "^4.4",
         "laravel/tinker": "^2.5",
         "fruitcake/laravel-cors": "^2.0",
@@ -24,7 +24,7 @@
         "phpunit/phpunit": "^9.5.10",
         "symfony/css-selector": "^5.2",
         "symfony/dom-crawler": "^5.3",
-        "friendsofphp/php-cs-fixer": "^3.0",
+        "friendsofphp/php-cs-fixer": "^3.7",
         "fakerphp/faker": "^1.9.1",
         "facade/ignition": "^2.5",
         "nunomaduro/collision": "^5.10"
